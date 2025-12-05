@@ -147,7 +147,7 @@ export default function SimulationPage() {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto h-[calc(100vh-3.5rem)] bg-zinc-50 relative flex flex-col overflow-hidden font-sans">
+    <div className="w-full max-w-lg mx-auto h-full bg-zinc-50 relative flex flex-col overflow-hidden font-sans">
       {/* --------------------------- 테마 선택 화면 --------------------------- */}
       {!selectedTheme && (
         <div className="flex-1 flex flex-col h-full overflow-hidden px-5 py-6">

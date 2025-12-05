@@ -62,7 +62,7 @@ export default async function Home() {
   const shuffledContents = shuffleArray(contents || []);
 
   return (
-    <div className="w-full max-w-lg mx-auto min-h-[calc(100vh-3rem)] relative overflow-hidden bg-zinc-50 flex">
+    <div className="w-full max-w-lg mx-auto h-full relative bg-zinc-50 flex flex-col">
       <MainHome todayHistory={todayHistory} contents={shuffledContents} />
     </div>
   );

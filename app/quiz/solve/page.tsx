@@ -87,7 +87,7 @@ export default function SolveQuizPage() {
 
   if (loading) {
     return (
-      <div className="w-full max-w-lg mx-auto h-[calc(100vh-3.5rem)] flex flex-col items-center justify-center bg-zinc-50">
+      <div className="w-full max-w-lg mx-auto h-full flex flex-col items-center justify-center bg-zinc-50">
         <div className="w-12 h-12 border-4 border-zinc-200 border-t-zinc-800 rounded-full animate-spin mb-4"></div>
         <p className="text-zinc-500 font-medium">시험지 받는 중...</p>
       </div>
@@ -97,7 +97,7 @@ export default function SolveQuizPage() {
   // 완료 화면
   if (!current) {
     return (
-      <div className="w-full max-w-lg mx-auto h-[calc(100vh-3.5rem)] flex flex-col items-center justify-center bg-zinc-50 px-6 animate-fadeIn">
+      <div className="w-full max-w-lg mx-auto h-full flex flex-col items-center justify-center bg-zinc-50 px-6 animate-fadeIn">
         <div className="w-20 h-20 bg-white rounded-3xl shadow-sm flex items-center justify-center mb-6 text-4xl border border-zinc-100">
           🎓
         </div>
@@ -119,7 +119,7 @@ export default function SolveQuizPage() {
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto h-[calc(100vh-3.5rem)] bg-zinc-50 flex flex-col relative">
+    <div className="w-full max-w-lg mx-auto h-full bg-zinc-50 flex flex-col relative">
       {/* 1. 상단 네비게이션 & 진행바 */}
       <div className="px-4 pt-4 pb-2 bg-zinc-50 shrink-0">
         <div className="flex items-center justify-between mb-4">

@@ -47,12 +47,14 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${gowunBatang.variable} ${songMyung.variable} ${jua.variable} antialiased bg-background overflow-y-auto h-screen`}
+        className={`${gowunBatang.variable} ${songMyung.variable} ${jua.variable} antialiased bg-background overflow-hidden h-dvh`}
       >
-        <div className="flex w-full h-screen justify-center">
-          <main className="relative flex flex-col w-full max-w-lg mx-auto bg-background items-stretch shadow-2xl  md:overflow-hidden">
+        <div className="flex w-full h-full justify-center bg-zinc-50">
+          <main className="relative flex flex-col w-full max-w-lg h-full bg-background shadow-2xl overflow-hidden">
             <Header />
-            <div className="pt-14 px-0 h-full">{children}</div>
+            <div className="flex-1 w-full overflow-y-auto scrollbar-hide pb-safe pt-14">
+              {children}
+            </div>
           </main>
         </div>
       </body>

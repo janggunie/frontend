@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@layer utilities {
+  /* 아이폰 하단 홈 바 영역만큼 패딩을 줌 */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  /* 상단 노치 영역 대응 */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+  /* 높이 계산 시 safe area를 뺀 높이 */
+  .min-h-safe {
+    min-height: calc(
+      100dvh - env(safe-area-inset-bottom) - env(safe-area-inset-top)
+    );
+  }
+}
+
 /* Noto Sans KR 고딕체 임포트 */
 @font-face {
   font-family: "Noto Sans KR";

@@ -28,7 +28,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-3rem)] flex items-center justify-center px-4 py-6 sm:px-3 sm:py-4 md:px-4 md:py-8">
+    <div className="h-full flex items-center justify-center px-4 py-6 sm:px-3 sm:py-4 md:px-4 md:py-8">
       <div className="w-full max-w-md relative">
         <div className="relative z-10 px-8">
           <h1 className="font-semibold text-center text-2xl">환영하오</h1>

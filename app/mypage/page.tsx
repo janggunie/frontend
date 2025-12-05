@@ -33,7 +33,7 @@ export default function MyPage() {
   ];
 
   return (
-    <div className="w-full max-w-lg mx-auto h-[calc(100vh-3.5rem)] bg-zinc-50 relative flex flex-col overflow-hidden font-sans">
+    <div className="w-full max-w-lg mx-auto h-full bg-zinc-50 relative flex flex-col overflow-hidden font-sans">
       {/* 1. 상단 헤더 */}
       <div className="px-6 py-4 bg-zinc-50 shrink-0 flex items-center justify-between z-10">
         <h1 className="text-xl font-bold text-zinc-800">마이페이지</h1>

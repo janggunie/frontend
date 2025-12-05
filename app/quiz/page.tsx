@@ -70,7 +70,7 @@ export default function QuizHome() {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto h-[calc(100vh-3.5rem)] bg-zinc-50 relative flex flex-col overflow-hidden">
+    <div className="w-full max-w-lg mx-auto h-full bg-zinc-50 relative flex flex-col overflow-hidden">
       <div className="flex-1 overflow-y-auto px-5 py-8 custom-scrollbar">
         {/* 1. 헤더 영역 */}
         <div className="mb-8 text-center animate-[fade-up-soft_0.5s_ease-out]">
