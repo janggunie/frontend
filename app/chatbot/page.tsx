@@ -11,24 +11,55 @@ export default function ChatbotSelectPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
   // 스크롤 이벤트를 통해 현재 활성화된 인덱스 계산
   const handleScroll = () => {
     if (scrollRef.current) {
-      const scrollLeft = scrollRef.current.scrollLeft;
+      const currentScrollLeft = scrollRef.current.scrollLeft;
       const width = scrollRef.current.offsetWidth;
-      // 반올림하여 가장 가까운 슬라이드 인덱스 계산
-      const newIndex = Math.round(scrollLeft / width);
+      const newIndex = Math.round(currentScrollLeft / width);
       setActiveIndex(newIndex);
     }
   };
 
+  // 1. 드래그 시작
+  const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  // 2. 드래그 중단 (마우스가 영역을 벗어나거나 버튼을 뗐을 때)
+  const onMouseLeaveOrUp = () => {
+    setIsDragging(false);
+  };
+
+  // 3. 드래그 중 이동
+  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5; // * 1.5는 스크롤 속도 조절 (취향껏 조절)
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
   return (
-    <div className="w-full max-w-lg mx-auto min-h-[calc(100vh-3rem)] h-full relative overflow-hidden bg-zinc-50 flex">
+    <div className="w-full max-w-lg mx-auto h-full relative overflow-hidden bg-zinc-50 flex">
       {/* 캐러셀 영역 */}
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="w-full h-full flex overflow-x-auto snap-x snap-mandatory scrollbar-hide touch-pan-x"
+        onMouseDown={onMouseDown}
+        onMouseLeave={onMouseLeaveOrUp}
+        onMouseUp={onMouseLeaveOrUp}
+        onMouseMove={onMouseMove}
+        className={`w-full h-full flex overflow-x-auto snap-x snap-mandatory scrollbar-hide touch-pan-x 
+          ${isDragging ? "cursor-grabbing snap-none" : "cursor-grab"} 
+        `}
       >
         {characters.map((person, index) => (
           <div
