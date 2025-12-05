@@ -1,4 +1,6 @@
 // app/chatbot/chat/actions.ts
+"use server";
+
 import { api } from "@/lib/axios";
 import { ChatHistoryItem, ChatResponse } from "@/types/chat";
 
